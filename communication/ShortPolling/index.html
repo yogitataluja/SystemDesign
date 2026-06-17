@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Short pooling example</h1>
+  <div id='currentTime'>
+
+  </div>
+  <script>
+  async function getData(){
+     try{
+     const resp= await fetch("http://localhost:3000/getData")
+      const result= await resp.json()
+      console.log(result, "c")
+     
+
+      document.getElementById('currentTime').innerHTML = result.data
+
+    }catch(error){
+      console.log("Error while fetching",error )
+
+    }
+
+    }
+getData()
+    setInterval(getData, 5000)
+
+  </script>
+</body>
+</html>
