@@ -11,26 +11,20 @@
 
   </div>
   <script>
-  async function getData(){
+  async function getData(lastData){
      try{
-     const resp= await fetch("http://localhost:3000/getData")
+     const resp= await fetch(`http://localhost:3000/getData?lastData=${lastData}`)
       const result= await resp.json()
-      console.log(result, "c")
-     
-
       document.getElementById('currentTime').innerHTML = result.data
-
+      getData(result.data)
     }catch(error){
       console.log("Error while fetching",error )
+      //plz handle error scenario
 
     } 
 
     }
-let intervalId;
-function shortPolling(){
- intervalId=setInterval(getData, 5000)
-}
-   shortPolling()
+getData()
 // mechanism need to be there on navigation or user action or target condition to clear your interval 
 clearInterval(intervalId  )
   </script>

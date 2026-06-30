@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Server-sent event example</h1>
+  <div id='sse-data'>
+
+  </div>
+  <script>
+    const eventSource=new EventSource('/getData');
+    eventSource.onmessage=(event)=>{
+      console.log(event, "tyuio")
+    }
+
+
+  </script>
+</body>
+</html>

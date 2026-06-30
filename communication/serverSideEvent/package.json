@@ -1,11 +1,11 @@
 {
-   "name": "longpolling",
+   "name": "serverside",
    "version": "1.0.0",
    "description": "",
    "main": "index.cjs",
    "type": "module",
    "scripts": {
-      "start": "nodemon ./index.js",
+      "start": "nodemon ./index.cjs",
       "test": "echo \"Error: no test specified\" && exit 1"
    },
    "dependencies": {
