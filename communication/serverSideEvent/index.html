@@ -13,7 +13,8 @@
   <script>
     const eventSource=new EventSource('/getData');
     eventSource.onmessage=(event)=>{
-      console.log(event, "tyuio")
+     const sseDataRef=document.getElementById("sse-data");
+     sseDataRef.innerHTML+=`<p>${event.data}</p>\n`  
     }
 
 
