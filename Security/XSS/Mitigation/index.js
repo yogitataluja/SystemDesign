@@ -7,8 +7,8 @@ app.use((req, res, next) => {
         'Content-Security-Policy',
         "default-src 'self';" + 
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com;" +
-        "script-src 'self' 'nonce-randomKey'  http://unsecure.com;" +// allow scripts from self, allow inline scripts, allow scripts from unsecure.com
-        "img-src 'self'  data: https://images.pexels.com/" // allow images from self, allow data URIs, allow images from images.com
+        "script-src 'self' 'nonce-randomKey' http://unsecure.com;" +// allow scripts from self, allow inline scripts, allow scripts from unsecure.com
+        "img-src 'self' data: https://images.pexels.com/" // allow images from self, allow data URIs, allow images from images.com
       );
     next();
 })
